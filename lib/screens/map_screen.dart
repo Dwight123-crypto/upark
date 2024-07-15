@@ -1,3 +1,4 @@
+// lib/screens/map_screen.dart
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
@@ -84,7 +85,7 @@ class _MapScreenState extends State<MapScreen> {
     mapController.animateCamera(CameraUpdate.newCameraPosition(
       CameraPosition(
         target: location,
-        zoom: 22.0,
+        zoom: 15.0,
       ),
     ));
   }
@@ -93,7 +94,10 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('😎UPark'),
+        title: Image.asset(
+          'assets/images/upark_logo.png',
+          width: 80,
+        ),
       ),
       body: Column(
         children: [
