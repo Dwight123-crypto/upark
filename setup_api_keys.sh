@@ -4,7 +4,7 @@
 export $(grep -v '^#' .env | xargs)
 
 # Replace Android API key
-sed -i '' "s/GOOGLE_MAPS_API_KAY/$GOOGLE_MAPS_API_KEY/" android/app/src/main/res/values/strings.xml
+sed -i '' "s/GOOGLE_MAPS_API_russel/$GOOGLE_MAPS_API_KEY/" android/app/src/main/res/values/strings.xml
 
 # Replace iOS API key
-sed -i '' "s/GOOGLE_MAPS_API_KAY/$GOOGLE_MAPS_API_KEY/" ios/Runner/AppDelegate.swift
+sed -i '' "s/GOOGLE_MAPS_API_russel/$GOOGLE_MAPS_API_KEY/" ios/Runner/AppDelegate.swift
