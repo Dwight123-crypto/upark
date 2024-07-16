@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../widgets/parking_map.dart';
 import '../widgets/parking_list.dart';
 
@@ -14,7 +15,7 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   late GoogleMapController mapController;
   final LatLng _center = const LatLng(7.088096517195564, 125.62385398071346);
-  final GoogleMapsPlaces _places = GoogleMapsPlaces(apiKey: 'googleapi_key');
+  late final GoogleMapsPlaces _places;
   List<PlacesSearchResult> parkingSpaces = [];
   LatLng currentLocation = LatLng(7.088096517195564, 125.62385398071346);
   Set<Marker> markers = {};
@@ -22,6 +23,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
+    _places = GoogleMapsPlaces(apiKey: dotenv.env['GOOGLE_MAPS_API_KEY']);
     _requestLocationPermission();
   }
 
